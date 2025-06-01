@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caña&Carnada</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <%- include('partials/header') %>
+
+    <!-- Carrusel Bootstrap -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+        <img src="image/banner1.png" class="d-block w-100" alt="banner 1">
+        <div class="carousel-caption caption-responsive">
+            <h1>¡Aventura al aire libre con el mejor equipo!</h1>
+            <p>Equipamiento profesional para una experiencia inolvidable. Calidad superior para tus aventuras. Precios que se adaptan a tu presupuesto.</p>
+            <button href="#productos" class="btn-cta">Ver Productos</button>
+        </div>
+        </div>
+        <div class="carousel-item">
+        <img src="image/banner2.png" class="d-block w-100" alt="banner 2">
+        </div>
+        <div class="carousel-item">
+        <img src="image/banner3.png" class="d-block w-100" alt="banner 3">
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+    </button>
+    </div>
+
+
+    <!-- Sección de Productos -->
+     <main class="content-wrapper">
+        <section class="section-container kits-section" id="kits">
+            <h2 class="section-title">Kits Especiales</h2>
+            <div class="product-grid">
+                <% if (kits && kits.length > 0) { %>
+                    <% kits.forEach(function(product) { %>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="<%= product.imageUrl %>" alt="<%= product.name %>">
+                                <span class="product-badge">KIT</span>
+                            </div>
+                            <div class="product-info kit-info">
+                                <h3 class="product-name"><%= product.name %></h3>
+                                <p class="kit-description"><%= product.description || '' %></p>
+                                <p class="product-price">$<%= product.currentPrice.toLocaleString('es-AR') %>
+                                    <% if (product.originalPrice) { %>
+                                        <span class="original-price">$<%= product.originalPrice.toLocaleString('es-AR') %></span>
+                                        <span class="discount">(<%= product.discountPercentage %>% OFF)</span>
+                                    <% } %>
+                                </p>
+                                <button class="add-to-cart" data-product-id="<%= product._id %>">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <p>No hay kits especiales disponibles en este momento.</p>
+                <% } %>
+            </div>
+        </section>
+
+        <section class="section-container offers-section" id="ofertas">
+            <h2 class="section-title">Ofertas Especiales</h2>
+            <div class="product-grid">
+                <% if (offers && offers.length > 0) { %>
+                    <% offers.forEach(function(product) { %>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="<%= product.imageUrl %>" alt="<%= product.name %>">
+                                <span class="product-badge"><%= product.discountPercentage %>% OFF</span>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name"><%= product.name %></h3>
+                                <div class="price-container">
+                                    <span class="current-price">$<%= product.currentPrice.toLocaleString('es-AR') %></span>
+                                    <span class="original-price">$<%= product.originalPrice.toLocaleString('es-AR') %></span>
+                                </div>
+                                <p class="savings-message">Ahorras $<%= (product.originalPrice - product.currentPrice).toLocaleString('es-AR') %></p>
+                                <button class="add-to-cart" data-product-id="<%= product._id %>">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <p>No hay ofertas especiales disponibles en este momento.</p>
+                <% } %>
+            </div>
+        </section>
+
+        </main>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+
+</body>
+</html>

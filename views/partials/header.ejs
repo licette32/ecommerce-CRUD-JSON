@@ -1,0 +1,52 @@
+<header class="main-header">
+    <div class="logo">
+        <img src="/image/logo.png" alt="Caña&Carnada"> </div>
+    <div class="search-box">
+        <form action="/search" method="GET"> <input type="text" name="q" placeholder="Buscar"> <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <nav>
+        <button class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>            
+        <ul class="nav-menu">
+            <li><a href="/"><i class="fas fa-home"></i> Inicio</a></li>
+            <li class="productos-toggle">
+                <a href="#"><i class="fas fa-box-open"></i> Productos <i class="fas fa-chevron-down"></i></a>
+                <ul class="products-dropdown">
+                    <li class="dropdown-category">
+                        <a href="/productos?categoria=camping"> <i class="fas fa-campground icono-menu"></i>
+                            <span class="texto-menu">Camping</span>
+                        </a>
+                    </li>
+                    <li class="dropdown-category">
+                        <a href="/productos?categoria=pesca"> <i class="fas fa-fish icono-menu"></i>
+                            <span class="texto-menu">Pesca</span>
+                        </a>
+                    </li>
+                    <li class="dropdown-category">
+                        <a href="/productos?categoria=kits"> <i class="fas fa-box icono-menu"></i>
+                            <span class="texto-menu">Kits</span>
+                        </a>
+                    </li>
+                    <li class="dropdown-category">
+                        <a href="/productos?categoria=ofertas"> <i class="fas fa-tags icono-menu"></i>
+                            <span class="texto-menu">Ofertas</span>
+                        </a>
+                    </li>
+                    <li class="dropdown-category">
+                        <a href="/productos"> <i class="fas fa-grip-horizontal icono-menu"></i>
+                            <span class="texto-menu">Ver Todos</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="/contacto"><i class="fas fa-envelope"></i> Contacto</a></li> <li class="user-cart">
+                <a href="/cart" class="cart-icon" aria-label="Carrito de compras"> <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span> </a>
+                <a href="/users/login" class="user-icon" aria-label="Mi cuenta"> <i class="fas fa-user"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>

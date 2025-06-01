@@ -1,0 +1,375 @@
+
+
+:root {
+    /* Aquí podrías re-definir las variables que uses, pero lo ideal es que home.css las contenga.
+    Si home.css ya las tiene, no necesitas re-declararlas aquí, solo usarlas. */
+    --primary-dark: #1a2a3a;
+    --secondary-dark: #142850;
+    --accent-green: #4a9b68;
+    --cta-orange: #FFA726;
+    --cta-orange-hover: #fb8c00;
+    --price-red: #FF847C;
+    --price-red-hover: #E84A5F;
+    --text-dark: #333;
+    --text-medium: #666;
+    --text-light: #f5f5f5;
+    --text-lighter: #ddd;
+    --text-gray: #999;
+    --background-light: #f5f5f5;
+    --background-white: #fff;
+    --border-light: #eee;
+    --highlight-yellow: #FECEA8;
+    --success-green: #4CAF50;
+
+    --shadow-sm: rgba(0, 0, 0, 0.1);
+    --shadow-md: rgba(0, 0, 0, 0.2);
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-pill: 25px;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.8rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    --font-size-sm: 0.8rem;
+    --font-size-base: 1rem;
+    --font-size-md: 1.1rem;
+    --font-size-lg: 1.2rem;
+    --font-size-xl: 1.4rem;
+    --font-size-xxl: 1.5rem;
+    --font-size-xxxl: 2rem;
+
+    --header-height: 80px; /* Importante para el posicionamiento sticky */
+}
+
+
+/* --- LAYOUT PRINCIPAL DE LA PÁGINA DE PRODUCTOS --- */
+/* Contenedor principal que organiza el menú lateral y la sección de productos */
+.productos-layout {
+    display: flex;
+    gap: var(--spacing-xl);
+    /* Podrías reducir max-width si lo sientes muy grande en pantallas amplias */
+    /* max-width: 1200px; */ /* Considera si quieres un ancho máximo un poco menor */
+    max-width: 1300px; /* Mantendremos este por ahora si funciona bien en la mayoría de monitores */
+    margin: var(--spacing-xl) auto;
+    padding: 0 var(--spacing-md);
+}
+/* --- MENÚ LATERAL DE CATEGORÍAS (ASIDE) --- */
+/* Esta es la parte que faltaba o estaba incompleta */
+.menu-productos {
+    width: 220px; /* Ancho fijo para el menú lateral */
+    position: sticky; /* Menú "pegajoso" al hacer scroll */
+    top: calc(var(--header-height) + var(--spacing-md)); /* Se pega debajo del header fijo + un margen */
+    background: var(--background-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 12px var(--shadow-sm);
+    height: fit-content; /* Ajusta la altura al contenido */
+    align-self: flex-start; /* Asegura que el aside no se estire a la altura total de la main */
+}
+
+.menu-productos h3 {
+    font-size: var(--font-size-lg);
+    color: var(--primary-dark);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.menu-productos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Asegura que no haya margen por defecto */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md); /* Espacio entre los ítems del menú */
+}
+
+.menu-productos li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.4rem 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+}
+
+.menu-productos li a:hover {
+    color: var(--price-red);
+    background-color: var(--background-light);
+}
+
+.menu-productos li a i {
+    color: var(--accent-green);
+    font-size: var(--font-size-base);
+    min-width: 20px; /* Asegura que los iconos tengan un ancho consistente */
+    text-align: center;
+}
+
+
+/* --- SECCIÓN PRINCIPAL DE CONTENIDO (MAIN) --- */
+.productos-secciones {
+    flex: 1; /* Permite que la sección de productos ocupe el espacio restante */
+}
+
+/* Título de la sección de productos (Ej: "Cañas", "Kits", "Todos los Productos") */
+.section-title {
+    text-align: center;
+    margin: var(--spacing-lg) 0 var(--spacing-xl);
+    font-size: var(--font-size-xxxl);
+    color: var(--primary-dark);
+    position: relative;
+    padding-bottom: var(--spacing-xs);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--highlight-yellow);
+    margin: var(--spacing-xs) auto 0;
+}
+
+/* --- GRILLA DE PRODUCTOS --- */
+/* GRILLA DE PRODUCTOS */
+.product-grid {
+    /* Reduce el ancho mínimo de las tarjetas de 250px a, por ejemplo, 220px o 200px */
+    /* Esto permitirá que más tarjetas quepan en una fila */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* AJUSTE AQUÍ */
+    gap: var(--spacing-lg);
+    padding-bottom: var(--spacing-xl);
+}
+
+.product-card {
+    background: var(--background-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 8px var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-md);
+}
+
+.product-image {
+    height: 200px;
+    overflow: hidden;
+    background-color: var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: var(--spacing-md);
+}
+
+.product-name {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-dark);
+    line-height: 1.3;
+}
+
+.kit-description {
+    font-size: var(--font-size-sm);
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-sm);
+    min-height: 2.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.price-container {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: var(--spacing-sm) 0;
+    flex-wrap: wrap;
+}
+
+.current-price {
+    font-size: var(--font-size-xl);
+    color: var(--price-red);
+    font-weight: bold;
+}
+
+.original-price {
+    font-size: var(--font-size-base);
+    color: var(--text-gray);
+    text-decoration: line-through;
+}
+
+.savings-message {
+    font-size: var(--font-size-sm);
+    color: var(--success-green);
+    font-weight: bold;
+    margin-bottom: var(--spacing-md);
+    width: 100%;
+}
+
+.product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--price-red);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.add-to-cart {
+    display: block;
+    width: 100%;
+    padding: 0.7rem;
+    background: var(--accent-green);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.add-to-cart:hover {
+    background: darken(var(--accent-green), 10%); /* Nota: 'darken' no es CSS estándar, si usas Sass/Less funcionaría. Para CSS puro, usa un color más oscuro directamente */
+    /* Alternativa CSS puro: background: #3c7d55; */
+}
+.add-to-cart:active {
+    transform: translateY(1px);
+}
+
+/* Si no hay productos */
+.productos-secciones p {
+    text-align: center;
+    font-size: var(--font-size-lg);
+    color: var(--text-medium);
+    margin-top: var(--spacing-xl);
+}
+
+
+/* --- RESPONSIVE ADAPTATIONS PARA LA PÁGINA DE PRODUCTOS --- */
+@media (max-width: 768px) {
+    .productos-layout {
+        flex-direction: column;
+        margin-top: var(--spacing-lg);
+        padding: 0 var(--spacing-xs);
+    }
+
+    .menu-productos {
+        width: 100%;
+        position: static;
+        box-shadow: none;
+        padding: var(--spacing-sm) 0;
+        background: none;
+        margin-bottom: var(--spacing-md);
+        align-self: unset; /* Reiniciar para móviles */
+    }
+
+    .menu-productos h3 {
+        text-align: center;
+        margin-bottom: var(--spacing-sm);
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .menu-productos ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-xs);
+        padding: 0 var(--spacing-md);
+    }
+
+    .menu-productos li {
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .menu-productos li a {
+        background: var(--background-white);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-pill);
+        padding: 0.4rem var(--spacing-md);
+        font-size: var(--font-size-sm);
+        white-space: nowrap;
+        justify-content: center;
+    }
+
+    .menu-productos li a:hover {
+        background: var(--price-red);
+        color: white;
+    }
+
+    .menu-productos li a i {
+        display: none;
+    }
+
+    .section-title {
+        font-size: var(--font-size-xxl);
+        margin-top: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .section-title::after {
+        width: 60px;
+    }
+
+    .product-grid {
+        gap: var(--spacing-md);
+        padding-bottom: var(--spacing-lg);
+    }
+
+    .product-card {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .product-image {
+        height: 180px;
+    }
+
+    .product-name {
+        font-size: var(--font-size-base);
+    }
+
+    .current-price {
+        font-size: var(--font-size-lg);
+    }
+
+    .original-price {
+        font-size: var(--font-size-sm);
+    }
+
+    .add-to-cart {
+        padding: 0.6rem;
+        font-size: var(--font-size-sm);
+    }
+}

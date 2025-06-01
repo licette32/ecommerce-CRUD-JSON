@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+
+# Variables de entorno
+.env
+
+# Archivos temporales del sistema
+Thumbs.db           # Windows
+*.tmp
+*.bak
+*.swp
+build/ 
+dist/               
+
+# Archivos generados por IDEs (como VS Code)
+.vscode/
+
+# Archivos de configuración de Nodemon
+.nodemonignore
+
+# Archivos de cobertura de pruebas
+coverage/
+
+# Archivos de log
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+

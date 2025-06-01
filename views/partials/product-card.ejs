@@ -1,0 +1,20 @@
+<div class="product-card">
+    <div class="product-image">
+        <img src="/image/products/<%= producto.imagen %>" alt="<%= producto.nombre %>">
+        <% if(producto.esOferta) { %>
+            <span class="product-badge"><%= producto.descuento %>% OFF</span>
+        <% } %>
+    </div>
+    <div class="product-info">
+        <h3 class="product-name"><%= producto.nombre %></h3>
+        <div class="price-container">
+            <span class="current-price">$<%= producto.precio.toLocaleString('es-CL') %></span>
+            <% if(producto.precioOriginal) { %>
+                <span class="original-price">$<%= producto.precioOriginal.toLocaleString('es-CL') %></span>
+            <% } %>
+        </div>
+        <button class="add-to-cart" data-id="<%= producto.id %>">
+            Añadir al carrito
+        </button>
+    </div>
+</div>

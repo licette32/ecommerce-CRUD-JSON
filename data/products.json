@@ -1,0 +1,185 @@
+{
+  "productos": [
+    {
+      "id": 4,
+      "nombre": "Mochila Trekking 60L",
+      "precio": 55750,
+      "imagen": "image/mochila4.png",
+      "categoria": "camping",
+      "descripcion": "En color gris, negro y rojo."
+    },
+    {
+      "id": 5,
+      "nombre": "Kit de Anzuelos Profesional",
+      "precio": 12.99,
+      "precio_original": 18.5,
+      "imagen": "image/kitanzuellos5.png",
+      "categoria": "pesca"
+    },
+    {
+      "id": 6,
+      "nombre": "Linterna Frontal Recargable",
+      "precio": 18.5,
+      "precio_original": 24.99,
+      "imagen": "image/linternafrontal6.png",
+      "categoria": "camping"
+    },
+    {
+      "id": 8,
+      "nombre": "Carrete de Pesca Spinning",
+      "precio": 37.8,
+      "precio_original": 45,
+      "imagen": "image/carretepesca8.png",
+      "categoria": "pesca"
+    },
+    {
+      "id": 9,
+      "nombre": "Termo NEW Classic 800 ml Mate System 22hrs",
+      "precio": 124.65,
+      "imagen": "image/termo1.png",
+      "categoria": "camping"
+    },
+    {
+      "id": 10,
+      "nombre": "Mesa de aluminio para Camping con 2 bancos",
+      "precio": 240.59,
+      "imagen": "image/mesacamp.png",
+      "categoria": "camping"
+    },
+    {
+      "id": 12,
+      "nombre": "Sombrilla C/ Rompeviento Tipo Carpa Playa + Funda",
+      "precio": 107.26,
+      "imagen": "image/sombrilla.png",
+      "categoria": "camping"
+    },
+    {
+      "id": 13,
+      "nombre": "Kit de Anzuelos Profesional",
+      "precio": 12.99,
+      "precio_original": 18.5,
+      "imagen": "image/kitanzuellos5.png",
+      "categoria": "ofertas"
+    },
+    {
+      "id": 14,
+      "nombre": "Linterna Frontal Recargable",
+      "precio": 18.5,
+      "precio_original": 24.99,
+      "imagen": "image/linternafrontal6.png",
+      "categoria": "ofertas"
+    },
+    {
+      "id": 15,
+      "nombre": "Carrete de Pesca Spinning",
+      "precio": 37.8,
+      "precio_original": 45,
+      "imagen": "image/carretepesca8.png",
+      "categoria": "pesca"
+    },
+    {
+      "id": 16,
+      "nombre": "Kit Iniciación Camping",
+      "descripcion": "Incluye tienda, saco, colchoneta y linterna.",
+      "precio": 149.99,
+      "precio_original": 179.99,
+      "imagen": "image/kit1.png",
+      "categoria": "kits"
+    },
+    {
+      "id": 17,
+      "nombre": "Kit Pesca Completo",
+      "descripcion": "Caña, carrete, línea, anzuelos, señuelos y caja de pesca.",
+      "precio": 99.99,
+      "precio_original": 125,
+      "imagen": "image/kit2.png",
+      "categoria": "kits"
+    },
+    {
+      "id": 18,
+      "nombre": "Kit Supervivencia",
+      "descripcion": "Navaja, brújula, silbato, primeros auxilios, manta térmica.",
+      "precio": 45.5,
+      "precio_original": 59.99,
+      "imagen": "image/kit3.png",
+      "categoria": "kits"
+    },
+    {
+      "id": 19,
+      "nombre": "Kit Familiar Camping",
+      "descripcion": "Tienda 6 personas, 4 sacos, mesa y cocinilla a gas.",
+      "precio": 299.99,
+      "precio_original": 359.99,
+      "imagen": "image/kit4.png",
+      "categoria": "kits"
+    },
+    {
+      "id": 21,
+      "nombre": "Caja de pesca Barracuda grande 2 bandejas",
+      "precio": 59.1,
+      "imagen": "image/cajab.png",
+      "categoria": "pesca"
+    },
+    {
+      "id": 22,
+      "nombre": "Bobina De Nylon Asso 250 Gramos",
+      "precio": 65.5,
+      "imagen": "image/bobina.png",
+      "categoria": "pesca"
+    },
+    {
+      "id": 23,
+      "nombre": "Cuchara HOLOLURE #2",
+      "precio": 16.33,
+      "imagen": "image/cuchara1.png",
+      "categoria": "pesca"
+    },
+    {
+      "id": 24,
+      "nombre": "Caña Stimula 1.98m Spinning 8-12Lb 2 tramos",
+      "precio": 59.49,
+      "precio_original": 65,
+      "imagen": "image/canha.png",
+      "categoria": "ofertas"
+    },
+    {
+      "id": 25,
+      "nombre": "Caña SLX Bait 1,98m 1T 8-17lb Pesca",
+      "precio": 213.147,
+      "precio_original": 236.83,
+      "imagen": "image/canha2.png",
+      "categoria": "ofertas"
+    },
+    {
+      "id": 27,
+      "nombre": "mesa",
+      "precio": 350,
+      "imagen": "image/imagen-1748794528172-729712517.png",
+      "categoria": "pesca"
+    },
+    {
+      "id": 28,
+      "nombre": "Juego de mesa y sillas plegables ultraligero 3 en 1",
+      "precio": 350,
+      "categoria": "pesca",
+      "descripcion": "3 en 1",
+      "imagen": "image/imagen-1748796541315-482968079.png"
+    },
+    {
+      "id": 30,
+      "nombre": "Inflador",
+      "precio": 75000,
+      "categoria": "camping",
+      "descripcion": "Marca Spinit",
+      "imagen": "image/imagen-1748798918936-843630507.png"
+    },
+    {
+      "id": 31,
+      "nombre": "Tienda de Campaña 4 Personas",
+      "precio": 350000,
+      "categoria": "camping",
+      "descripcion": "En color verde y azul.",
+      "imagen": "image/imagen-1748809253007-751831862.jpg"
+    }
+  ]
+}
