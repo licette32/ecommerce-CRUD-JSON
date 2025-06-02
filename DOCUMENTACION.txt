@@ -61,59 +61,6 @@ Final JSON/
         ├── login.ejs        # Formulario de login
         └── admin.ejs        # Panel de administración de productos
 
-
-
-¡Excelente idea! Una buena documentación es clave para cualquier proyecto. Basado en todos los fragmentos de código que hemos revisado, tu proyecto es una aplicación web construida con Node.js y Express, que gestiona productos y ofrece un panel de administración simple.
-
-Aquí tienes un borrador de la documentación que resume su funcionamiento, su estructura y las tecnologías clave:
-
-Documentación del Proyecto: Tienda Online (CRUD de Productos y Gestión de Usuarios)
-1. Introducción y Propósito del Proyecto
-Este proyecto es una aplicación web básica que simula una tienda online, enfocada en la gestión de un catálogo de productos y una funcionalidad de administración para un usuario con credenciales fijas. Permite a los usuarios navegar por los productos, ver detalles, y a un administrador realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre el catálogo de productos.
-
-2. Tecnologías Clave Utilizadas
-Node.js: Entorno de ejecución JavaScript del lado del servidor.
-Express.js: Framework web para Node.js, utilizado para construir la API y manejar las rutas.
-EJS (Embedded JavaScript): Motor de plantillas para generar HTML dinámicamente desde el lado del servidor.
-FS (File System) con Promesas: Módulo de Node.js para interactuar con el sistema de archivos, utilizado para leer y escribir datos JSON.
-body-parser: Middleware de Express para procesar los cuerpos de las solicitudes HTTP (datos de formularios, JSON).
-method-override: Middleware para permitir el uso de verbos HTTP como PUT o DELETE en formularios HTML que solo soportan GET y POST.
-JSON (JavaScript Object Notation): Formato ligero para el intercambio de datos, utilizado como base de datos simple para almacenar productos.
-Nodemon: Herramienta de desarrollo que reinicia automáticamente el servidor al detectar cambios en los archivos.
-3. Estructura del Proyecto
-El proyecto sigue una estructura de carpetas modular para organizar el código de manera lógica:
-
-Final JSON/
-├── app.js                   # Archivo principal de la aplicación
-├── data/
-│   └── products.json        # "Base de datos" de productos en formato JSON
-├── public/                  # Archivos estáticos (CSS, JavaScript del cliente, imágenes)
-│   ├── css/
-│   ├── js/
-│   └── image/               # Imágenes de productos y para errores (ej. error404.png)
-├── controllers/             # Lógica de negocio y manejo de solicitudes HTTP
-│   ├── productController.js # Manejador de la lógica de productos
-│   └── userController.js    # Manejador de la lógica de usuarios/autenticación
-├── routes/                  # Definición de rutas y mapeo a los controladores
-│   ├── productRouter.js     # Rutas relacionadas con productos (CRUD)
-│   └── userRouter.js        # Rutas relacionadas con usuarios (login, admin panel)
-└── views/                   # Plantillas EJS para renderizar las páginas HTML
-    ├── Home.ejs             # Página de inicio
-    ├── productos.ejs        # Página con el listado completo de productos o categorías
-    ├── error404.ejs         # Página para errores 404 (no encontrado)
-    ├── contact/             # Vistas relacionadas con el contacto
-    │   ├── contact.ejs
-    │   └── contact-success.ejs
-    ├── products/            # Vistas relacionadas con la gestión de productos
-    │   ├── detalleProd.ejs
-    │   ├── createProduct.ejs
-    │   ├── editProduct.ejs
-    │   └── deleteProductConfirm.ejs
-    └── users/               # Vistas relacionadas con usuarios y administración
-        ├── login.ejs        # Formulario de login
-        └── admin.ejs        # Panel de administración de productos
-
-
 4. Funcionalidades Principales
 4.1. Gestión de Productos (CRUD)
 
