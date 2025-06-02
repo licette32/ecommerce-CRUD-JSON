@@ -14,7 +14,7 @@ const userController = {
     procesarLogin: (req, res) => {
         const { username, password } = req.body;
 
-        // Lógica de autenticación simple (¡solo para desarrollo, no usar en producción!)
+        // Lógica de autenticación simple
         if (username === 'admin' && password === '1234') {
             res.redirect('/users/admin'); // Redirige al panel de administración
         } else {
@@ -41,7 +41,7 @@ const userController = {
                 return res.status(500).send('Error interno del servidor al procesar productos.');
             }
 
-            // Asume que la vista de admin está en views/users/admin.ejs
+            //la vista de admin está en views/users/admin.ejs
             res.render('users/admin', { products: productos });
         });
     }

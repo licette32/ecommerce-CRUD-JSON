@@ -59,19 +59,17 @@ body {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* Contenedor principal: margen para no quedar bajo sidebar ni header */
 .main-content {
-  margin-top: 60px; /* altura del header */
-  margin-left: 220px; /* ancho del sidebar */
+  margin-top: 60px;
+  margin-left: 220px;
   padding: 20px;
   min-height: calc(100vh - 60px);
   background-color: #fff;
 }
 /* BARRA LATERAL IZQUIERDA */
-/* Sidebar fijo a la izquierda, debajo del header */
 .admin-sidebar {
   position: fixed;
-  top: 60px; /* justo debajo del header */
+  top: 60px;
   left: 0;
   width: 220px;
   height: calc(100vh - 60px);
@@ -127,8 +125,8 @@ body {
 
 /* CONTENIDO PRINCIPAL */
 main {
-  margin-top: 80px; /* Altura del header */
-  margin-left: 200px; /* Ancho del sidebar */
+  margin-top: 80px;
+  margin-left: 200px;
   max-width: 700px;
   background-color: white;
   padding: 2rem;
@@ -217,7 +215,7 @@ a.btn:hover {
 /* RESPONSIVE AJUSTADO PARA FORMULARIO */
 @media (max-width: 768px) {
   main {
-    margin-left: 60px; /* Sidebar reducido en móviles */
+    margin-left: 60px;
     padding: 1rem;
   }
 }

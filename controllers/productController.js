@@ -10,11 +10,9 @@ const productosFilePath = path.join(__dirname, '../data/products.json');
 const leerProductos = () => {
     try {
         const data = fs.readFileSync(productosFilePath, 'utf-8');
-        // Asegúrate de que el JSON tenga la estructura esperada { "productos": [...] }
         const parsedData = JSON.parse(data);
-        return parsedData.productos || []; // Si 'productos' no existe, devuelve un array vacío
+        return parsedData.productos || [];
     } catch (error) {
-        // Si el archivo no existe o hay un error de parseo, devuelve un array vacío
         console.error("Error al leer products.json:", error.message);
         return [];
     }
@@ -22,25 +20,20 @@ const leerProductos = () => {
 
 // Función para escribir productos
 const guardarProductos = (productos) => {
-    const data = { productos: productos }; // Envuelve el array de productos en un objeto con la clave 'productos'
+    const data = { productos: productos };
     try {
         fs.writeFileSync(productosFilePath, JSON.stringify(data, null, 2));
-        console.log("DEBUG: Productos guardados exitosamente en products.json"); // LOG DE ÉXITO
+        console.log("DEBUG: Productos guardados exitosamente en products.json");
     } catch (error) {
-        console.error("ERROR: Fallo al escribir products.json:", error.message); // LOG DE ERROR
+        console.error("ERROR: Fallo al escribir products.json:", error.message);
     }
 };
 
 const productController = {
-    // Si esta es tu ruta principal (GET /), usualmente renderiza una vista
-    // Actualmente, hace res.json. Si quieres una página HTML, cámbialo a res.render
     stock: (req, res) => {
         const productos = leerProductos();
-        // Si quieres que esta sea tu página HTML de inicio:
-        res.render('Home', { products: productos }); // Asumiendo que tu vista se llama Home.ejs en products/
-
-        // Si quieres que sea un endpoint de API que devuelve JSON:
-        // res.json(productos);
+        // página HTML de inicio
+        res.render('Home', { products: productos });
     },
 
     detalle: (req, res) => {
@@ -49,32 +42,25 @@ const productController = {
         const producto = productos.find(p => p.id === id);
 
         if (producto) {
-            // Si quieres una vista para el detalle:
-            res.render('products/detalleProd', { producto: producto }); // Asume vista 'detalleProd.ejs'
-
-            // Si quieres que sea un endpoint de API que devuelve JSON:
-            // res.json(producto);
+            res.render('products/detalleProd', { producto: producto });
         } else {
-            res.status(404).render('error404', { // Asume que tienes una vista 'error404.ejs'
+            res.status(404).render('error404', {
                 mensaje: 'Producto no encontrado',
-                imagen: '/image/error404.png' // Asegúrate de que esta imagen exista en public/img
+                imagen: '/image/error404.png'
             });
         }
     },
 
     // Mostrar formulario de creación
     create: (req, res) => {
-        res.render('products/createProduct'); // Asume que tu vista es 'createProduct.ejs' en products/
+        res.render('products/createProduct');
     },
 
     // Guardar nuevo producto
     store: (req, res) => {
         const productos = leerProductos();
-        // ESTE ES EL CAMBIO FUNDAMENTAL: Incluir 'descripcion' en la desestructuración
         const { nombre, precio, categoria, descripcion } = req.body; 
 
-        // Asegúrate de que req.file tenga la propiedad 'filename' después de Multer
-        // Y que la ruta de la imagen sea consistente (image/ o images/)
         const imagen = req.file ? `image/${req.file.filename}` : 'image/default-product.png'; 
 
         const nuevoProducto = {
@@ -82,14 +68,14 @@ const productController = {
             nombre,
             precio: parseFloat(precio),
             categoria,
-            descripcion, // Ahora 'descripcion' está correctamente definida
+            descripcion,
             imagen
         };
 
         try {
-            productos.push(nuevoProducto); // <-- Asegúrate de que sea 'nuevoProducto' (con 'o' al final)
-            guardarProductos(productos); // Llama a tu función guardarProductos
-            res.redirect("/users/admin"); // Redirección correcta
+            productos.push(nuevoProducto);
+            guardarProductos(productos);
+            res.redirect("/users/admin");
         } catch (error) {
             console.error("Error al guardar el producto:", error);
             res.status(500).send("Error interno al guardar el producto.");
@@ -102,7 +88,7 @@ const productController = {
         const producto = productos.find(p => p.id === id);
 
         if (producto) {
-            res.render('products/editProduct', { producto }); // Asume que tu vista es 'editProduct.ejs' en products/
+            res.render('products/editProduct', { producto }); // 'editProduct.ejs' en products/
         } else {
             res.status(404).render('error404', {
                 mensaje: 'Producto no encontrado',
@@ -116,7 +102,7 @@ const productController = {
         const productos = leerProductos();
         const id = parseInt(req.params.id);
         const { nombre, precio, categoria, descripcion } = req.body;
-        const imagen = req.file ? `image/${req.file.filename}` : null; // Ruta relativa desde 'public'
+        const imagen = req.file ? `image/${req.file.filename}` : null;
 
         const productoIndex = productos.findIndex(p => p.id === id);
 
@@ -131,7 +117,7 @@ const productController = {
             };
 
             guardarProductos(productos);
-            res.redirect('/users/admin'); // Redirige a la ruta principal de administración después de actualizar
+            res.redirect('/users/admin');
         } else {
             res.status(404).render('error404', {
                 mensaje: 'Producto no encontrado',
@@ -141,13 +127,13 @@ const productController = {
     },
 
     // Mostrar confirmación de eliminación
-    delete: (req, res) => { // Este es para la confirmación GET /delete/:id
+    delete: (req, res) => { 
         const productos = leerProductos();
         const id = parseInt(req.params.id);
         const producto = productos.find(p => p.id === id);
 
         if (producto) {
-            res.render('products/deleteProductConfirm', { producto }); // Asume vista 'deleteProductConfirm.ejs'
+            res.render('products/deleteProductConfirm', { producto });
         } else {
             res.status(404).render('error404', {
                 mensaje: 'Producto no encontrado',
@@ -157,18 +143,17 @@ const productController = {
     },
 
     // Eliminar producto
-    destroy: (req, res) => { // Este es para la eliminación DELETE /delete/:id
-        console.log("DEBUG: Método destroy alcanzado."); // DEBUG
+    destroy: (req, res) => {
+        console.log("DEBUG: Método destroy alcanzado.");
         let productos = leerProductos();
-        console.log("DEBUG: Productos leídos (cantidad):", productos.length); // DEBUG
+        console.log("DEBUG: Productos leídos (cantidad):", productos.length);
         const id = parseInt(req.params.id);
-        console.log("DEBUG: ID recibido para eliminar:", id); // DEBUG
+        console.log("DEBUG: ID recibido para eliminar:", id);
 
         const productoIndex = productos.findIndex(p => p.id === id);
-        console.log("DEBUG: Índice del producto a eliminar:", productoIndex); // DEBUG
+        console.log("DEBUG: Índice del producto a eliminar:", productoIndex);
 
         if (productoIndex !== -1) {
-            // Lógica opcional para eliminar la imagen del disco
             const imagenAEliminar = productos[productoIndex].imagen;
             if (imagenAEliminar && imagenAEliminar !== 'image/default-product.png') {
                 const rutaImagen = path.join(__dirname, '../public', imagenAEliminar);
@@ -178,9 +163,9 @@ const productController = {
             }
 
             productos.splice(productoIndex, 1);
-            console.log("DEBUG: Productos después de splice (cantidad):", productos.length); // DEBUG
+            console.log("DEBUG: Productos después de splice (cantidad):", productos.length);
 
-            guardarProductos(productos); // Llama a la función para guardar
+            guardarProductos(productos);
             res.redirect('/users/admin');
         } else {
             console.log("DEBUG: Producto con ID", id, "no encontrado para eliminar."); // DEBUG
@@ -195,40 +180,36 @@ const productController = {
     ofertas: (req, res) => {
         const productos = leerProductos();
         const productosOferta = productos.filter(p => p.categoria === 'ofertas');
-        res.render('products/ofertas', { products: productosOferta }); // Asume 'ofertas.ejs' en products/
+        res.render('products/ofertas', { products: productosOferta }); //'ofertas.ejs' en products/
     },
 
     // Filtrar por categoría 'kits'
     kits: (req, res) => {
         const productos = leerProductos();
         const productosKits = productos.filter(p => p.categoria === 'kits');
-        res.render('products/kits', { products: productosKits }); // Asume 'kits.ejs' en products/
+        res.render('products/kits', { products: productosKits }); //'kits.ejs' en products/
     },
 
     // Nuevo método para mostrar el formulario de contacto
     contactForm: (req, res) => {
-        res.render('contact/contact'); // Renderiza 'contact.ejs'
+        res.render('contact/contact');
     },
 
     // Nuevo método para manejar el envío del formulario de contacto
     handleContactForm: (req, res) => {
         const { nombre, email, telefono, mensaje } = req.body;
-        // Aquí puedo procesar los datos del formulario:
-        // - Guardar en una base de datos
-        // - Ver: Enviar un email (usando Nodemailer, por ejemplo)
         console.log("Formulario de contacto recibido:");
         console.log("Nombre:", nombre);
         console.log("Email:", email);
         console.log("Teléfono:", telefono);
         console.log("Mensaje:", mensaje);
-        // Por ahora, solo redirige a una página de agradecimiento o a la página de inicio
         res.redirect('/contact-success');
     },
     admin: (req, res) => {
     const productos = leerProductos();
-    res.render('admin/admin', { products: productos }); // Asegúrate que la ruta sea views/admin/admin.ejs
+    res.render('admin/admin', { products: productos });
     }
     
 };
 
-module.exports = productController; // Exporta el objeto controlador
+module.exports = productController;

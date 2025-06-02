@@ -14,7 +14,7 @@ const userRouter = require('./routes/userRouter');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// Middleware para method-override (si usas formularios con DELETE/PUT)
+// Middleware para method-override (formularios con DELETE/PUT)
 app.use(methodOverride('_method'));
 
 // Servir archivos estáticos (CSS, JS, imágenes) desde la carpeta 'public'
@@ -165,7 +165,7 @@ app.get('/contacto', (req, res) => {
 // 6. Ruta para manejar el envío del formulario de contacto (POST)
 app.post('/submit-contact', (req, res) => {
     // Aquí se procesan los datos del formulario:
-    // Ajustamos los nombres para que coincidan con los 'name' de tus inputs en contact.ejs
+    // Ajusto los nombres para que coincidan con los 'name' de tus inputs en contact.ejs
     const { nombre, email, telefono, mensaje } = req.body;
 
     console.log('Mensaje de contacto recibido:');

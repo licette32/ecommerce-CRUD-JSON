@@ -20,8 +20,7 @@ const upload = multer({ storage });
 // --- Definición de Rutas ---
 
 // GET /admin/productos/ - Muestra el listado de productos
-// Nota: Si esta ruta se accede via /admin/productos, entonces router.get("/") es la ruta raíz de este router
-router.get("/", productoController.stock); // Asume que 'stock' renderiza el listado de productos de admin
+router.get("/", productoController.stock); 
 
 router.get("/create", productoController.create);
 router.post("/create", upload.single('imagen'), productoController.store);
@@ -33,9 +32,6 @@ router.put("/:id", upload.single('imagen'), productoController.update);
 
 router.get("/delete/:id", productoController.delete);
 router.delete("/:id", productoController.destroy);
-
-// ELIMINAR ESTA LÍNEA si el panel de administración principal se maneja en userRouter
-// router.get("/admin", productoController.admin); // <--- QUITAR ESTA LÍNEA
 
 // Rutas adicionales para categorías
 router.get("/ofertas", productoController.ofertas);

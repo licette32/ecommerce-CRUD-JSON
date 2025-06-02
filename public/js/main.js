@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
-      navMenu.classList.toggle('show'); // útil si en algunas vistas usás .show
+      navMenu.classList.toggle('show'); 
     });
   }
 

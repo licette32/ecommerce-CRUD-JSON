@@ -1,8 +1,6 @@
 
-
 :root {
-    /* Aquí podrías re-definir las variables que uses, pero lo ideal es que home.css las contenga.
-    Si home.css ya las tiene, no necesitas re-declararlas aquí, solo usarlas. */
+    /* --- VARIABLES DE COLORES Y ESTILOS --- */
     --primary-dark: #1a2a3a;
     --secondary-dark: #142850;
     --accent-green: #4a9b68;
@@ -42,33 +40,29 @@
     --font-size-xxl: 1.5rem;
     --font-size-xxxl: 2rem;
 
-    --header-height: 80px; /* Importante para el posicionamiento sticky */
+    --header-height: 80px;
 }
-
 
 /* --- LAYOUT PRINCIPAL DE LA PÁGINA DE PRODUCTOS --- */
 /* Contenedor principal que organiza el menú lateral y la sección de productos */
 .productos-layout {
     display: flex;
     gap: var(--spacing-xl);
-    /* Podrías reducir max-width si lo sientes muy grande en pantallas amplias */
-    /* max-width: 1200px; */ /* Considera si quieres un ancho máximo un poco menor */
-    max-width: 1300px; /* Mantendremos este por ahora si funciona bien en la mayoría de monitores */
+    max-width: 1300px;
     margin: var(--spacing-xl) auto;
     padding: 0 var(--spacing-md);
 }
 /* --- MENÚ LATERAL DE CATEGORÍAS (ASIDE) --- */
-/* Esta es la parte que faltaba o estaba incompleta */
 .menu-productos {
-    width: 220px; /* Ancho fijo para el menú lateral */
-    position: sticky; /* Menú "pegajoso" al hacer scroll */
-    top: calc(var(--header-height) + var(--spacing-md)); /* Se pega debajo del header fijo + un margen */
+    width: 220px;
+    position: sticky;
+    top: calc(var(--header-height) + var(--spacing-md));
     background: var(--background-white);
     padding: var(--spacing-lg);
     border-radius: var(--radius-md);
     box-shadow: 0 4px 12px var(--shadow-sm);
-    height: fit-content; /* Ajusta la altura al contenido */
-    align-self: flex-start; /* Asegura que el aside no se estire a la altura total de la main */
+    height: fit-content; 
+    align-self: flex-start;
 }
 
 .menu-productos h3 {
@@ -82,10 +76,10 @@
 .menu-productos ul {
     list-style: none;
     padding: 0;
-    margin: 0; /* Asegura que no haya margen por defecto */
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md); /* Espacio entre los ítems del menú */
+    gap: var(--spacing-md);
 }
 
 .menu-productos li a {
@@ -108,14 +102,13 @@
 .menu-productos li a i {
     color: var(--accent-green);
     font-size: var(--font-size-base);
-    min-width: 20px; /* Asegura que los iconos tengan un ancho consistente */
+    min-width: 20px;
     text-align: center;
 }
 
-
 /* --- SECCIÓN PRINCIPAL DE CONTENIDO (MAIN) --- */
 .productos-secciones {
-    flex: 1; /* Permite que la sección de productos ocupe el espacio restante */
+    flex: 1;
 }
 
 /* Título de la sección de productos (Ej: "Cañas", "Kits", "Todos los Productos") */
@@ -138,11 +131,8 @@
 }
 
 /* --- GRILLA DE PRODUCTOS --- */
-/* GRILLA DE PRODUCTOS */
 .product-grid {
-    /* Reduce el ancho mínimo de las tarjetas de 250px a, por ejemplo, 220px o 200px */
-    /* Esto permitirá que más tarjetas quepan en una fila */
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* AJUSTE AQUÍ */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: var(--spacing-lg);
     padding-bottom: var(--spacing-xl);
 }
@@ -260,8 +250,7 @@
 }
 
 .add-to-cart:hover {
-    background: darken(var(--accent-green), 10%); /* Nota: 'darken' no es CSS estándar, si usas Sass/Less funcionaría. Para CSS puro, usa un color más oscuro directamente */
-    /* Alternativa CSS puro: background: #3c7d55; */
+    background: darken(var(--accent-green), 10%);
 }
 .add-to-cart:active {
     transform: translateY(1px);
@@ -274,7 +263,6 @@
     color: var(--text-medium);
     margin-top: var(--spacing-xl);
 }
-
 
 /* --- RESPONSIVE ADAPTATIONS PARA LA PÁGINA DE PRODUCTOS --- */
 @media (max-width: 768px) {
@@ -291,7 +279,7 @@
         padding: var(--spacing-sm) 0;
         background: none;
         margin-bottom: var(--spacing-md);
-        align-self: unset; /* Reiniciar para móviles */
+        align-self: unset;
     }
 
     .menu-productos h3 {
